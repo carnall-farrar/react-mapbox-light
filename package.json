@@ -1,0 +1,32 @@
+{
+  "name": "react-mapbox-light",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "peerDependencies": {
+    "mapbox-gl": "^2.6.1",
+    "react": "^17.0.2",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/mapbox-gl": "^2.6.0",
+    "@types/react": "^17.0.38",
+    "mapbox-gl": "^2.6.1",
+    "react": "^17.0.2",
+    "typescript": "^4.5.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carnall-farrar/react-mapbox-light.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carnall-farrar/react-mapbox-light/issues"
+  },
+  "homepage": "https://github.com/carnall-farrar/react-mapbox-light#readme"
+}
