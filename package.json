@@ -1,8 +1,14 @@
 {
-  "name": "react-mapbox-light",
+  "name": "@carnallfarrar/react-mapbox-light",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A light adaptation of mapbox-gl for React application",
+  "main": "dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "private": true,
+  "files": [
+    "src",
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch"
