@@ -10,7 +10,7 @@ A modern and light adaptation of `mapbox-gl` for React.
 ## Getting Started
 
 ```
-npm i react-mapbox-light mapbox-gl --save
+npm i @carnallfarrar/react-mapbox-light mapbox-gl --save
 ```
 
 You will need to add mapbox CSS by importing it into your JS/TS files or inject it into your HTML
