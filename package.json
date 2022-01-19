@@ -4,7 +4,7 @@
   "description": "A light adaptation of mapbox-gl for React application",
   "main": "dist/index.js",
   "typings": "./dist/index.d.ts",
-  "private": true,
+  "private": false,
   "files": [
     "src",
     "dist"

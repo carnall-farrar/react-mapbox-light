@@ -63,3 +63,34 @@ import { MapboxMap, GeoJSON } from 'react-mapbox-light';
         />
       </MapboxMap>
 ```
+
+## Documentation
+
+### MapboxMap
+
+This is the main component used to render a Mapbox map into the DOM.
+
+#### Properties
+
+| Property      | type     | Required | Description                                                                                        |
+| ------------- | -------- | -------- | -------------------------------------------------------------------------------------------------- |
+| token         | string   | Yes      | Mapbox GL token to use for the map                                                                 |
+| control       | string   | No       | No control is diplayed if not provided, if provided value should be the position of the control.   |
+| scrollZoom    | boolean  | No       | default to True. if provided with false it will disable zoom on scroll                             |
+| mapboxOptions | object   | No       | Mapbox options to pass to the map, see [mapbox doc](https://docs.mapbox.com/mapbox-gl-js/api/map/) |
+| onStyleLoad   | Function | No       | a callback function called when the map style has loaded                                           |
+
+### GeoJSON
+
+a GeoJSON component instantiating a source and multiple layer for a given geojson.
+
+#### Properties
+
+| Property     | type     | Required | Description                                                                                                |
+| ------------ | -------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| data         | Object   | Yes      | The data for the GeoJSON to display                                                                        |
+| id           | string   | No       | The ID to use to display the source provided as data                                                       |
+| layers       | Array    | Yes      | [Mapbox layer(s)](https://docs.mapbox.com/help/glossary/layer/) to use to display GeoJSON provided as data |
+| onClick      | Function | No       | onClick event provided to all layers displayed                                                             |
+| onMouseEnter | Function | No       | onMouseEnter event provided to all layers displayed                                                        |
+| onMouseLeave | Function | No       | onMouseLeave event provided to all layers displayed                                                        |
