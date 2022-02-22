@@ -9,6 +9,8 @@ export interface PopUpProps {
   lnglat?: mapboxgl.LngLat;
   layer?: mapboxgl.Layer;
   map: mapboxgl.Map;
+  closeOnClick: boolean;
+  closeButton: boolean;
 }
 
 const PopUpComponent: React.FunctionComponent<PopUpProps> = ({
@@ -16,6 +18,8 @@ const PopUpComponent: React.FunctionComponent<PopUpProps> = ({
   lnglat,
   layer,
   map,
+  closeButton,
+  closeOnClick,
   children,
 }) => {
   const popups = document.getElementsByClassName("mapboxgl-popup");
@@ -24,8 +28,8 @@ const PopUpComponent: React.FunctionComponent<PopUpProps> = ({
   }
 
   const popup = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: false,
+    closeButton: closeButton,
+    closeOnClick: closeOnClick,
   });
 
   const htmlString = renderToString(children as any);

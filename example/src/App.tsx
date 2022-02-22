@@ -67,7 +67,12 @@ function App() {
               setPopUpProperty(property);
             }}
           />
-          <PopUp lnglat={popUpProperty?.lnglat} layer={popUpProperty?.layer}>
+          <PopUp
+            lnglat={popUpProperty?.lnglat}
+            layer={popUpProperty?.layer}
+            closeButton={false}
+            closeOnClick={true}
+          >
             <PopUpContent area={popUpProperty?.name} />
           </PopUp>
         </MapboxMap>
