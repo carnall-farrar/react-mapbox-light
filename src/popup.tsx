@@ -18,6 +18,11 @@ const PopUpComponent: React.FunctionComponent<PopUpProps> = ({
   map,
   children,
 }) => {
+  const popups = document.getElementsByClassName("mapboxgl-popup");
+  if (popups.length) {
+    popups[0].remove();
+  }
+
   const popup = new mapboxgl.Popup({
     closeButton: false,
     closeOnClick: false,
