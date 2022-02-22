@@ -26,9 +26,8 @@ export interface GeoJSONProps {
     } & mapboxgl.EventData
   ) => void;
   onMouseMove?: (
-    e: mapboxgl.MapMouseEvent & {
-      features?: mapboxgl.MapboxGeoJSONFeature[] | undefined;
-    } & mapboxgl.EventData
+    e: mapboxgl.MapMouseEvent & mapboxgl.EventData,
+    features?: mapboxgl.MapboxGeoJSONFeature[] | undefined
   ) => void;
 }
 
@@ -67,7 +66,8 @@ const GeoJSONComponent: React.FunctionComponent<GeoJSONProps> = ({
       map.on("mousemove", layer.id, (e) => {
         map.getCanvas().style.cursor = "pointer";
         if (onMouseMove) {
-          onMouseMove(e);
+          const features = map.queryRenderedFeatures(e.point);
+          onMouseMove(e, features);
         }
       });
     });
