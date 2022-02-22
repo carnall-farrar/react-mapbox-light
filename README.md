@@ -60,7 +60,16 @@ import { MapboxMap, GeoJSON } from 'react-mapbox-light';
                 },
                 },
             ]}
+            onMouseMove={(e, features) => handleMouseMove(e, features)}
         />
+        <PopUp
+            lnglat={popUpProperty?.lnglat}
+            layer={popUpProperty?.layer}
+            closeButton={false}
+            closeOnClick={true}
+          >
+            <div>Popup content here!</div>
+        </PopUp>
       </MapboxMap>
 ```
 
@@ -94,3 +103,17 @@ a GeoJSON component instantiating a source and multiple layer for a given geojso
 | onClick      | Function | No       | onClick event provided to all layers displayed                                                             |
 | onMouseEnter | Function | No       | onMouseEnter event provided to all layers displayed                                                        |
 | onMouseLeave | Function | No       | onMouseLeave event provided to all layers displayed                                                        |
+
+### PopUp
+
+using the mapboxgl inbuilt popup functionality
+you can include a React component or plain HTML as a child component to populate the popup content
+
+#### Properties
+
+| Property     | type            | Required | Description                                                                                                |
+| ------------ | --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| latlng       | mapboxgl.LngLat | Yes      | The lat and long coordinates of the mouse position                                                         |
+| layer        | mapboxgl.Layer  | Yes      | [Mapbox layer](https://docs.mapbox.com/help/glossary/layer/) to use to display GeoJSON provided as data    |
+| closeButton  | Boolean         | Yes      | Add a close button to the popup                                                                            |
+| closeOnClick | Boolean         | Yes      | Close the popup on click anywhere in the map                                                               |
