@@ -1,13 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import { MapboxMap, GeoJSON } from "../../";
+import { PopUpContent } from "./PopupContent";
+import { MapboxMap, GeoJSON, PopUp } from "../../";
 import geojson from "./la.json";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 interface propertiesProps {
-  lat: number;
-  long: number;
+  lnglat: mapboxgl.LngLat;
   name: string;
+  layer: mapboxgl.Layer | undefined;
 }
 
 function App() {
@@ -58,14 +59,17 @@ function App() {
                 (row) => row.layer.id === "fillin"
               )[0];
               const property = {
-                lat: rightLayer?.properties?.lat,
-                long: rightLayer?.properties?.long,
+                lnglat: e.lngLat,
                 name: rightLayer?.properties?.rgn19nm,
+                layer: rightLayer?.layer,
               };
 
               setPopUpProperty(property);
             }}
           />
+          <PopUp lnglat={popUpProperty?.lnglat} layer={popUpProperty?.layer}>
+            <PopUpContent />
+          </PopUp>
         </MapboxMap>
       </div>
     </div>
