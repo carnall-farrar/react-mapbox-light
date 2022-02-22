@@ -68,7 +68,7 @@ function App() {
             }}
           />
           <PopUp lnglat={popUpProperty?.lnglat} layer={popUpProperty?.layer}>
-            <PopUpContent />
+            <PopUpContent area={popUpProperty?.name} />
           </PopUp>
         </MapboxMap>
       </div>

@@ -1,7 +1,7 @@
-export const PopUpContent = () => {
-  return (
-    <div>
-      <span>Hello there!</span>
-    </div>
-  );
+interface PopUpContentProps {
+  area: string | undefined;
+}
+
+export const PopUpContent = ({ area }: PopUpContentProps) => {
+  return <strong>{area}</strong>;
 };
