@@ -32,7 +32,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 ```
 
 ```tsx
-import { MapboxMap, GeoJSON } from 'react-mapbox-light';
+import { MapboxMap, GeoJSON, PopUp } from 'react-mapbox-light';
 ...
 
       <MapboxMap
@@ -66,7 +66,7 @@ import { MapboxMap, GeoJSON } from 'react-mapbox-light';
             lnglat={popUpProperty?.lnglat}
             closeButton={false}
             closeOnClick={true}
-          >
+        >
             <div>Popup content here!</div>
         </PopUp>
       </MapboxMap>
