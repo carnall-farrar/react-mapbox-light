@@ -8,7 +8,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 interface propertiesProps {
   lnglat: mapboxgl.LngLat;
   name: string;
-  layer: mapboxgl.Layer | undefined;
 }
 
 function App() {
@@ -55,9 +54,14 @@ function App() {
               },
             ]}
             onMouseMove={(e, features) => {
-              const rightLayer = features?.filter(
+              const rightLayer = features?.find(
                 (row) => row.layer.id === "fillin"
-              )[0];
+              );
+
+              if (rightLayer === undefined) {
+                setPopUpProperty(undefined);
+              }
+
               const property = {
                 lnglat: e.lngLat,
                 name: rightLayer?.properties?.rgn19nm,
@@ -67,14 +71,15 @@ function App() {
               setPopUpProperty(property);
             }}
           />
-          <PopUp
-            lnglat={popUpProperty?.lnglat}
-            layer={popUpProperty?.layer}
-            closeButton={false}
-            closeOnClick={true}
-          >
-            <PopUpContent area={popUpProperty?.name} />
-          </PopUp>
+          {popUpProperty && (
+            <PopUp
+              lnglat={popUpProperty.lnglat}
+              closeButton={false}
+              closeOnClick={false}
+            >
+              <PopUpContent area={popUpProperty.name} />
+            </PopUp>
+          )}
         </MapboxMap>
       </div>
     </div>

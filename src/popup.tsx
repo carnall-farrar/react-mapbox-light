@@ -6,8 +6,7 @@ import { withMap } from "./context";
 
 export interface PopUpProps {
   id?: string;
-  lnglat?: mapboxgl.LngLat;
-  layer?: mapboxgl.Layer;
+  lnglat: mapboxgl.LngLat;
   map: mapboxgl.Map;
   closeOnClick: boolean;
   closeButton: boolean;
@@ -16,30 +15,48 @@ export interface PopUpProps {
 const PopUpComponent: React.FunctionComponent<PopUpProps> = ({
   id = uuidv4(),
   lnglat,
-  layer,
   map,
   closeButton,
   closeOnClick,
   children,
 }) => {
-  const popups = document.getElementsByClassName("mapboxgl-popup");
-  if (popups.length) {
-    popups[0].remove();
-  }
+  const [popup, setPopup] = React.useState<any>(null);
+  const [newLnglat, setNewLnglat] = React.useState<mapboxgl.LngLat | undefined>(
+    undefined
+  );
+  const [newHtml, setNewHtml] = React.useState<string | undefined>(undefined);
 
-  const popup = new mapboxgl.Popup({
-    closeButton: closeButton,
-    closeOnClick: closeOnClick,
-  });
+  React.useEffect(() => {
+    if (!popup) {
+      const popupNew = new mapboxgl.Popup({
+        closeButton: closeButton,
+        closeOnClick: closeOnClick,
+      });
 
-  const htmlString = renderToString(children as any);
-  if (lnglat && layer) {
-    popup.setLngLat(lnglat).setHTML(htmlString).addTo(map);
+      const htmlString = renderToString(children as any);
+      popupNew.setLngLat(lnglat).setHTML(htmlString).addTo(map);
+      setPopup(popupNew);
+      setNewLnglat(lnglat);
+      setNewHtml(htmlString);
+    }
 
-    map.on("mouseleave", layer.id, () => {
-      map.getCanvas().style.cursor = "";
-      popup.remove();
-    });
+    return () => {
+      if (popup) {
+        popup.remove();
+      }
+    };
+  }, [popup, setPopup, setNewLnglat, setNewHtml]);
+
+  if (popup) {
+    const htmlString = renderToString(children as any);
+    if (htmlString !== newHtml) {
+      setNewHtml(htmlString);
+      popup.setHTML(newHtml);
+      // console.log({ htmlString, newHtml });
+    } else if (lnglat !== newLnglat) {
+      setNewLnglat(lnglat);
+      popup.setLngLat(newLnglat);
+    }
   }
 
   return null;
