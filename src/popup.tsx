@@ -51,7 +51,7 @@ const PopUpComponent: React.FunctionComponent<PopUpProps> = ({
     const htmlString = renderToString(children as any);
     if (htmlString !== newHtml) {
       setNewHtml(htmlString);
-      popup.setHTML(newHtml);
+      popup.setHTML(htmlString);
       // console.log({ htmlString, newHtml });
     } else if (lnglat !== newLnglat) {
       setNewLnglat(lnglat);
