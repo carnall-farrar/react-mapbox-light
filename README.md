@@ -64,7 +64,6 @@ import { MapboxMap, GeoJSON } from 'react-mapbox-light';
         />
         <PopUp
             lnglat={popUpProperty?.lnglat}
-            layer={popUpProperty?.layer}
             closeButton={false}
             closeOnClick={true}
           >
@@ -114,6 +113,5 @@ you can include a React component or plain HTML as a child component to populate
 | Property     | type            | Required | Description                                                                                                |
 | ------------ | --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | latlng       | mapboxgl.LngLat | Yes      | The lat and long coordinates of the mouse position                                                         |
-| layer        | mapboxgl.Layer  | Yes      | [Mapbox layer](https://docs.mapbox.com/help/glossary/layer/) to use to display GeoJSON provided as data    |
 | closeButton  | Boolean         | Yes      | Add a close button to the popup                                                                            |
 | closeOnClick | Boolean         | Yes      | Close the popup on click anywhere in the map                                                               |
