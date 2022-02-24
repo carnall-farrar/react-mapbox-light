@@ -32,7 +32,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 ```
 
 ```tsx
-import { MapboxMap, GeoJSON } from 'react-mapbox-light';
+import { MapboxMap, GeoJSON, PopUp } from 'react-mapbox-light';
 ...
 
       <MapboxMap
@@ -60,7 +60,15 @@ import { MapboxMap, GeoJSON } from 'react-mapbox-light';
                 },
                 },
             ]}
+            onMouseMove={(e, features) => handleMouseMove(e, features)}
         />
+        <PopUp
+            lnglat={popUpProperty?.lnglat}
+            closeButton={false}
+            closeOnClick={true}
+        >
+            <div>Popup content here!</div>
+        </PopUp>
       </MapboxMap>
 ```
 
@@ -94,3 +102,16 @@ a GeoJSON component instantiating a source and multiple layer for a given geojso
 | onClick      | Function | No       | onClick event provided to all layers displayed                                                             |
 | onMouseEnter | Function | No       | onMouseEnter event provided to all layers displayed                                                        |
 | onMouseLeave | Function | No       | onMouseLeave event provided to all layers displayed                                                        |
+
+### PopUp
+
+using the mapboxgl inbuilt popup functionality
+you can include a React component or plain HTML as a child component to populate the popup content
+
+#### Properties
+
+| Property     | type            | Required | Description                                                                                                |
+| ------------ | --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
+| latlng       | mapboxgl.LngLat | Yes      | The lat and long coordinates of the mouse position                                                         |
+| closeButton  | Boolean         | Yes      | Add a close button to the popup                                                                            |
+| closeOnClick | Boolean         | Yes      | Close the popup on click anywhere in the map                                                               |

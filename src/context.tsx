@@ -14,11 +14,13 @@ export interface MapInputProps {}
 export function withMap<T>(
   Component: React.FC<Omit<T, "map"> & MapOutputProps>
 ) {
-  return function MappedComponent(props: Omit<T, "map"> & MapInputProps) {
+  const MappedComponent: React.FC<Omit<T, "map"> & MapInputProps> = (props) => {
     return (
       <MapContext.Consumer>
         {(map) => map && <Component {...props} map={map} />}
       </MapContext.Consumer>
     );
   };
+
+  return MappedComponent;
 }
