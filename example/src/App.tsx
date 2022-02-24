@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <h1>React Mapbox Light</h1>
-      <div style={{ height: 500, width: 500 }}>
+      <div style={{ height: 500, width: 500, margin: "auto", marginTop: 50 }}>
         <MapboxMap
           token="pk.eyJ1IjoiYWxleDMxNjUiLCJhIjoiY2t1aTVtMWh0MHFlMzJvbm1vOGo2dTQzYSJ9.5sEf-pLMffICqD8spumntg"
           control="bottom-left"
@@ -25,7 +25,7 @@ function App() {
           mapboxOptions={{
             style: "mapbox://styles/mapbox/light-v10",
             center: [-2.2783131, 53.1400067],
-            zoom: 6,
+            zoom: 5,
           }}
         >
           <GeoJSON
