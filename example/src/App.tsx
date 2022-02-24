@@ -70,6 +70,7 @@ function App() {
 
               setPopUpProperty(property);
             }}
+            onMouseLeave={(e) => setPopUpProperty(undefined)}
           />
           {popUpProperty && (
             <PopUp
