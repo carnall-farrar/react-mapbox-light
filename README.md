@@ -111,8 +111,8 @@ you can include a React component or plain HTML as a child component to populate
 
 #### Properties
 
-| Property     | type            | Required | Description                                                                                                |
-| ------------ | --------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| latlng       | mapboxgl.LngLat | Yes      | The lat and long coordinates of the mouse position                                                         |
-| closeButton  | Boolean         | Yes      | Add a close button to the popup                                                                            |
-| closeOnClick | Boolean         | Yes      | Close the popup on click anywhere in the map                                                               |
+| Property     | type            | Required | Description                                        |
+| ------------ | --------------- | -------- | -------------------------------------------------- |
+| latlng       | mapboxgl.LngLat | Yes      | The lat and long coordinates of the mouse position |
+| closeButton  | Boolean         | Yes      | Add a close button to the popup                    |
+| closeOnClick | Boolean         | Yes      | Close the popup on click anywhere in the map       |
