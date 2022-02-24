@@ -6,6 +6,7 @@ A modern and light adaptation of `mapbox-gl` for React.
 
 - MapboxMap
 - GeoJSON
+- PopUp
 
 ## Getting Started
 
